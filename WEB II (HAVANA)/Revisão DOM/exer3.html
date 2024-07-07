@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desconto</title>
+</head>
+
+<body>
+    <script>
+        var valorcompra = Number(prompt("Informe o valor da compra:"))
+
+        function descontosdajuju(valorcompra) {
+            if (valorcompra <= 500) {
+                var valordodesconto = (valorcompra * 10) / 100
+                var desconto = valorcompra - valordodesconto
+                document.write(`A porcentagem de desconto oferecida para seu valor de compra é 10%, que indica menos R$${valordodesconto} no valor original. Sua compra ficou por R$${desconto}.`)
+            } else {
+                var valordodesconto = (valorcompra * 15) / 100
+                var desconto = valorcompra - valordodesconto
+                document.write(`A porcentagem de desconto oferecida para seu valor de compra é 15%, que indica menos R$${valordodesconto} no valor original. Sua compra ficou por R$${desconto}.`)
+            }
+        }
+    var chamada = descontosdajuju(valorcompra)
+    </script>
+</body>
+
+</html>

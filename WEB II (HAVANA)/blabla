@@ -1,0 +1,100 @@
+const express = require('express');
+const app = express();
+const port = 1500;
+const bodyParser = require("body-parser");
+const urlencodedParser = bodyParser.urlencoded({ extended: false });
+
+app.use(express.static('aquitem'));
+
+app.get('/', (req, res) => {
+    res.send('Olá, essa é a Palavras de Julietta, sua biblioteca gratuita favorita!!');
+});
+
+const livros = [
+    { nome: 'o assassinato na casa do pastor', autor: 'Agatha Christie', datadelancamento: '01 de maio de 2010', genero: 'Ficção/suspense', disponivel: 'Sim', origem: 'Internacional', paginas: '288 páginas' },
+    { nome: 'tudo é rio', autor: 'Carla Madeira', datadelancamento: '08 de fevereiro de 2021', genero: 'Ficção Literária', disponivel: 'Não', origem: 'Nacional', paginas: '210 páginas' },
+    { nome: 'o vale do medo', autor: 'Arthur Conan Doyle', datadelancamento: '21 de fevereiro de 2019', genero: 'Suspense Investigativo', disponivel: 'Sim', origem: 'Internacional', paginas: '224 páginas' },
+    { nome: 'o chamado selvagem', autor: 'Jack London', datadelancamento: '1 de janeiro de 2013', genero: 'Ficção de Aventura', disponivel: 'Sim', origem: 'Internacional', paginas: '120 páginas' }
+];
+
+app.post('/livros', urlencodedParser, (req, res) => {
+    const nomeLivro = req.body.nomeLivro;
+    const resultadodaBusca = livros.filter(livro => livro.nome.includes(nomeLivro));
+
+    if (resultadodaBusca.length > 0) {
+        let todoslivros = ''; // String para armazenar os detalhes dos livros
+
+        resultadodaBusca.forEach(livro => {
+            todoslivros += "Nome: " + livro.nome + "<br>";
+            todoslivros += "Autor: " + livro.autor + "<br>";
+            todoslivros += "Data de Lançamento: " + livro.datadelancamento + "<br>";
+            todoslivros += "Gênero: " + livro.genero + "<br>";
+            todoslivros += "Disponível: " + livro.disponivel + "<br>";
+            todoslivros += "Origem: " + livro.origem + "<br>";
+            todoslivros += "Quantidade de Páginas: " + livro.paginas + "<br>";
+            todoslivros += "<br>";
+        });
+
+        res.send(todoslivros);
+    } else {
+        res.send("Perdoe-nos, a Palavras de Julietta não tem exemplar desse livro, mas tente outro!!");
+    }
+});
+
+app.listen(port, () => {
+    console.log(`http://localhost:${port}`);
+});
+
+----------------------------------------------------------------------------------------------
+
+const express = require('express');
+const app = express();
+app.use(express.static('aquitem'));
+const port = 1500;
+const bodyParser = require("body-parser"); // Instalar o npm install body-parser, pois os dados puxados pelo post vem codificados, sendo necessário o decoficador.
+var urlencodedParser = bodyParser.urlencoded({extended:false}); //Segundo parâmetro.
+
+app.get('/', (req, res) => {
+    res.send('Olá, essa é a Palavras de Julietta, sua biblioteca gratuita favorita!!')
+});
+
+livros = [
+    { nome:'o assassinato na casa do pastor', autor:'Agatha Christhie', datadelancamento:'01 de maio de 2010', genero:'Ficção/suspense', disponivel:'Sim', origem:'Internacional', paginas:'288 páginas'},
+    { nome:'tudo é rio', autor:'Carla Madeira', datadelancamento:'08 de fevereiro de 2021', genero:'Ficção Literária', disponivel:'Não', origem:'Nacional', paginas:'210 páginas'},
+    { nome:'o vale do medo', autor:'Arthur Conan Doyle', datadelancamento:'21 de fevereiro de 2019', genero:'Suspense Investigativo', disponivel:'Sim', origem:'Internacional', paginas:'224 páginas'},
+    { nome:'o chamado selvagem', autor:'Jack London', datadelancamento:'1 de janeiro de 2013', genero:'Ficção de Aventura', disponivel:'Sim', origem:'Internacional', paginas:'120 páginas'}
+];
+	
+	
+app.post('/livros', urlencodedParser, (req, res) => {
+
+    var nomeLivro = req.body.nomeLivro; //Usa-se o body, pois o conteúdo está no body, esse é o parâmetro.
+    var resultadodaBusca = [];
+
+    livros.forEach(livros => {
+        if (livros.nome.includes(nomeLivro)) {
+            resultadodaBusca.push(livros);
+        } else {
+            document.write("Perdoe-nos, a Palavras de Julietta não tem exemplar desse livro, mas tente outro!!")
+        }
+    })
+    res.send( );
+
+    var todoslivros = ''; //Array dos produtos
+    for (var i = 0; i < livros.length; i++) {
+        todoslivros += "Nome: " + livros[i].nome + "<br>";
+        todoslivros += "Autor: " + livros[i].autor + "<br>";
+        todoslivros += "Data de Lançamento: " + livros[i].datadelancamento + "<br>";
+        todoslivros += "Gênero: " + livros[i].genero + "<br>";
+        todoslivros += "Disponível: " + livros[i].disponivel + "<br>";
+        todoslivros += "Origem: " + livros[i].origem + "<br>";
+        todoslivros += "Quantidade de Páginas: " + livros[i].paginas + "<br>";
+        todoslivros += "<br>";
+
+    }
+    res.send(todoslivros) 
+});
+
+app.listen(port, () => {
+    console.log("http://localhost:" + 1500);
+});

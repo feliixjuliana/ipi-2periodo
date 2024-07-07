@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hogwarts</title>
+</head>
+
+<body>
+    <h3>"Espero que estejam satisfeitos com o que fizeram. </br>
+        Podíamos ter sido mortos, ou pior, expulsos."</h3>
+
+    <form id="formulario">
+        <label for="hogwarts">Selecione uma casa de Hogwarts: </label> <br>
+        <select name="hogwarts" id="hogwarts">
+            <option value="">Selecione uma casa</option>
+            <option value="gry">Grifinória</option>
+            <option value="sly">Sonserina</option>
+            <option value="rav">Corvinal</option>
+            <option value="huf">Lufa-lufa</option>
+        </select>
+        <br><br>
+        <label for="caracte">Selecione uma característica da casa escolhida: </label> <br>
+        <select name="caracte" id="caracte"></select>
+        <br><br>
+        <label for="personagem">Digite o nome de um personagem que pertence à casa escolhida: </label> <br>
+        <input id="personagem" type="text" name="personagem"><br><br>
+        <input type="submit" value="Enviar">
+    </form>
+
+    <div id="listarItens">
+
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

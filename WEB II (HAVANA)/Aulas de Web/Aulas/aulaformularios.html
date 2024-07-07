@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <select name="estado" id="estado" onchange="populaCidade();">
+        <option value="">Selecione um Estado</option>
+        <option value="pb">PB</option>
+        <option value="pe">PE</option>
+        <option value="rn">RN</option>
+    </select>
+    <br>
+
+    <select id="cidade" name="cidade"></select>
+
+    <script>
+        function populaCidade() {
+            var estado = document.getElementById("estado");
+            var sigla = estado.value;
+
+            switch (sigla) {
+                case "pb": 
+                    var cidade = document.getElementById("cidade");
+
+                    var op1 = document.createElement("option");
+                    op1.innerHTML = "João Pessoa"; op1.value= "jp";
+                    cidade.appendChild(op1);
+
+                    var op2 = document.createElement("option");
+                    op2.innerHTML= "Pernambuco"; op2.value="pe";
+                    cidade.appendChild(op2);
+
+                    break;
+
+                case "pb":
+                    
+            }
+        }
+    </script>
+</body>
+
+</html>

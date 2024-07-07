@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="dv" onmouseover="mudaCorDiv();" onmouseout="mudaCorDiv();">
+        <p id="p1">Pressione o botão para imprimir Olá!!!</p>
+    </div>
+    <button onclick="mudaCorFonte()">Imprimir</button>
+
+    <script>
+        
+        function alteraP() {
+            var p1 = document.getElementById("p1");
+            if (p1.innerHTML == "Olá!!!") {
+                p1.innerHTML = "Pressione o botão para imprimir Olá!!!"
+            } else {
+                p1.innerHTML = "Olá!!!"
+            }
+        }
+
+        function mudaCorFonte() {
+            var dv = document.getElementById("dv");
+            dv.style.color = "red";
+        }
+
+        function mudaCorDiv() {
+            var dv = document.getElementById("dv");
+            if (dv.style.backgroundColor == "gray") {
+                dv.style.backgroundColor = ""
+            } else {
+                dv.style.backgroundColor = "gray"
+            }
+
+            if (dv.style.color == "red") {
+                dv.style.color = "green";
+                dv.style.fontSize = "16px";
+            } else {
+                dv.style.color = "black";
+                dv.style.fontSize = "12px";
+            }
+        };
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Página</title>
+</head>
+<body>
+    <div id="conteudo">
+        <form>
+            <input type="text" name="idade" id=""> <br>
+            <textarea name="detalhes"></textarea><br>
+            <button>enviar</button>
+        </form>
+    </div>
+    <script>
+        var div = document.getElementById("conteudo");
+        var p = document.createElement("p");
+        p.innerHTML = "Hoje é segunda-feira";
+        p.id = "p1"
+        console.log(p);
+        div.appendChild(p); 
+
+        var input = document.createElement("input");
+        input.type="text";
+        input.value="Qualquer coisa";
+        input.name="teste";
+        console.log(input)
+        
+        div.appendChild(input)
+
+        console.log(div.children);
+        console.log(div.children[0]);
+        div.removeChild(div.children[0])
+    </script>
+</body>
+</html>

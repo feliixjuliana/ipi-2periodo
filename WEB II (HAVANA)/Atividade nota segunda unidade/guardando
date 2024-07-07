@@ -1,0 +1,126 @@
+id = ""
+// Pegando o elemento pai do segundo campo
+let pai_campo2 = document.getElementById("pai_campo2");
+
+// Criando a div que será o segundo campo e atribuindo seus valores
+let campo2 = document.createElement("div");
+campo2.classList.add("campo");
+campo2.id = "campo2";
+pai_campo2.appendChild(campo2);
+
+// Criando o icone verde do segundo campo. Esse será o icone de edição
+let iconeVerde2 = document.createElement("aside");
+iconeVerde2.classList.add("icone");
+iconeVerde2.id = "iconeVerde2";
+pai_campo2.appendChild(iconeVerde2);
+
+// Criando o icone vermelho do segundo campo. Esse será o icone de exclusão
+let iconeVermelho2 = document.createElement("aside");
+iconeVermelho2.classList.add("icone");
+iconeVermelho2.id = "iconeVermelho2";
+pai_campo2.appendChild(iconeVermelho2);
+
+
+------------------------------------
+
+     // função que move os dados dos selects e da caixa de texto para os campos
+
+     function movendoElementos() {
+
+        let selec1 = document.getElementById("selec1");
+        let selec2 = document.getElementById("selec2");
+        let campoTexto = document.getElementById("campoTexto");
+
+        let texto = selec1.value + ", " + selec2.value + ", " + campoTexto.value;
+
+        // Pegando o elemento pai do primeiro campo
+
+        let pai_campo1 = document.getElementById("pai_campo1");
+
+        // Criando a div que será o primero campo e atribuindo seus valores
+
+        let campo1 = document.createElement("div");
+        campo1.classList.add("campo");
+        campo1.id = "campo1";
+        pai_campo1.appendChild(campo1);
+
+        // Criando o icone verde do primeiro campo. Esse será o icone de edição
+
+        let iconeVerde1 = document.createElement("aside");
+        iconeVerde1.classList.add("icone");
+        iconeVerde1.id = "iconeVerde1";
+        pai_campo1.appendChild(iconeVerde1);
+
+        // Criando o icone vermelho do primeiro campo. Esse será o icone de exclusão
+
+        let iconeVermelho1 = document.createElement("aside");
+        iconeVermelho1.classList.add("icone");
+        iconeVermelho1.id = "iconeVermelho1";
+        pai_campo1.appendChild(iconeVermelho1);
+
+        // Criando o elemento span 
+
+        let span = document.createElement("span");
+        // Atribuindo ao span o conteudo da variá~vel texto
+
+        span.textContent = texto;
+
+        // Colocando o elemento span no campo1
+
+        campo1.appendChild(span);
+
+        // Função que ao clicar no icone VERMELHO apaga todo o conteudo do primeiro campo.(Inclusive os icones)
+
+        iconeVermelho1.onclick = function () {
+            for (var i = pai_campo1.children.length - 1; i >= 0; i--) {
+                pai_campo1.removeChild(pai_campo1.children[i]);
+            }
+
+        }
+
+        // Pondo limite de campos criados
+
+        for (var i = pai_campo1.children.length - 1; i >= 0; i--) {
+            break
+        }
+
+        iconeVerde.onclick = function () {
+            campoTexto.value = texto;
+        }
+
+    }
+
+    ------------------------
+
+    let iconeVerde1 = document.createElement("aside");
+    iconeVerde1.classList.add("icone");
+    iconeVerde1.id = "iconeVerde1";
+    pai_campo1.appendChild(iconeVerde1);
+
+    let iconeVermelho1 = document.createElement("aside");
+    iconeVermelho1.classList.add("icone");
+    iconeVermelho1.id = "iconeVermelho1";
+    pai_campo1.appendChild(iconeVermelho1);
+
+    let span = document.createElement("span");
+    span.textContent = texto;
+
+    campo1.appendChild(span);
+
+    iconeVermelho1.onclick = function () {
+        for (var i = pai_campo1.children.length - 1; i >= 0; i--) {
+            pai_campo1.removeChild(pai_campo1.children[i]);
+        }
+
+    }
+
+    for (var i = pai_campo1.children.length - 1; i >= 0; i--) {
+        break
+    }
+
+    iconeVerde.onclick = function() {
+        var editartext = prompt("Deseja editar seu text? Pode escrever o novo aqui: ");
+
+    }
+
+

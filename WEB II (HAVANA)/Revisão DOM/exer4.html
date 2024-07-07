@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamentos</title>
+</head>
+<body>
+    <script>
+        var gasto = Number(prompt("Informe o valor gasto, por favor: "))
+        var opcoesdepagamento = parseInt (prompt (`Qual opção de pagamento deseja? /n Opção 1: a vista com 10% de desconto. /n Opção 2: em duas vezes (preço da etiqueta) /n Opção 3: de 3 até 10 vezes com 3% de juros ao mês(somente para compras acima de R$ 100,00).)`))
+
+        function escolharesultado(gasto,opcoesdepagamento){
+            if (opcoesdepagamento == 1) {
+                var valordodesconto = (gasto*10)/100
+                var valorfinal = gasto - valordodesconto
+                document.write(`Com o desconto, o valor ficou R$${valorfinal}`)
+            } else {
+                if (opcoesdepagamento == 2) {
+                    var parcela = gasto/2
+                    document.write(`Cada uma das duas parcelas ficaram por R$${parcela}`)
+                } else {
+                    if (gasto >= 100) {
+                        var parcelasqueridas = parseInt (prompt("Informe a quantidade de parcelas, por favor: "))
+                        var valorparcela = (gasto/parcelasqueridas)*0.03
+                        var valorfinal = (gasto/parcelasqueridas) + valorparcela
+                        document.write(`Optando em dividir em ${parcelasqueridas} com o acréscimo de 3%, o valor total fica R$${valorfinal}.`)
+
+                    }
+                }
+            }
+        }
+
+        var chamada = escolharesultado(gasto,opcoesdepagamento)
+    </script>
+</body>
+</html>

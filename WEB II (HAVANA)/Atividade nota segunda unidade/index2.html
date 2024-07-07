@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Setor de Avaliação</title>
+</head>
+
+<body>
+
+    <h1>Deseja avaliar algum(a): </h1>
+    <section method="get" class="estrutura">
+        <form action="" class="estrutura">
+            <select name="selec1" id="selec1" class="escolha" onchange="opcoesSelec2()">
+                <option value="">Escolha uma das opções</option>
+                <option value="Animes">Anime</option>
+                <option value="Filmes">Filme</option>
+                <option value="Series">Série</option>
+            </select>
+            <select name="selec2" id="selec2" class="escolha"></select>
+        </form>
+
+        <main class="alinhamento">
+            <input type="text" name="campoTexto" id="campoTexto" placeholder="Digite algo">
+            <button onclick="movendoElementos()">Enviar</button>
+        </main>
+
+        <main class="alinhamento" id="pai_campo1"></main>
+        <main class="alinhamento" id="pai_campo2"></main>
+    </section>
+
+    <script>
+
+        // Adiciona as opções no segundo select
+
+        function opcoesSelec2() {
+            let selec1 = document.getElementById("selec1");
+
+            let selec2 = document.getElementById("selec2");
+
+            for (var i = selec2.children.length - 1; i >= 0; i--) {
+                selec2.removeChild(selec2.children[i])
+            }
+
+            var op0 = document.createElement("option");
+            op0.innerHTML = "Selecione uma opção";
+            selec2.appendChild(op0);
+
+            if (selec1.value == "Animes") {
+
+                var op1 = document.createElement("option");
+                op1.innerHTML = "Atack on Titan";
+                op1.value = "Atack on Titan";
+                selec2.appendChild(op1);
+
+                var op2 = document.createElement("option");
+                op2.innerHTML = "Dragon Ball Z";
+                op2.value = "Dragon Ball Z";
+                selec2.appendChild(op2);
+
+                var op3 = document.createElement("option");
+                op3.innerHTML = "Demon Slayer";
+                op3.value = "Demon Slayer";
+                selec2.appendChild(op3);
+
+                var op4 = document.createElement("option");
+                op4.innerHTML = "One Piece";
+                op4.value = "One Piece";
+                selec2.appendChild(op4);
+
+                var op5 = document.createElement("option");
+                op5.innerHTML = "Death Note";
+                op5.value = "Death Note";
+                selec2.appendChild(op5);
+
+                var op6 = document.createElement("option");
+                op6.innerHTML = "Princesa Mononoke";
+                op6.value = "Princesa Mononoke";
+                selec2.appendChild(op6);
+
+                var op7 = document.createElement("option");
+                op6.innerHTML = "O Castelo Animado";
+                op6.value = "O Castelo Animado";
+                selec2.appendChild(op7);
+
+                var op8 = document.createElement("option");
+                op8.innerHTML = "Túmulo de Vagalumes";
+                op8.value = "Túmulo de Vagamules";
+                selec2.appendChild(op8);
+
+                var op9 = document.createElement("option");
+                op9.innerHTML = "Hunter x Hunter";
+                op9.value = "Hunter x Hunter";
+                selec2.appendChild(op9);
+
+                var op10 = document.createElement("option");
+                op10.innerHTML = "Cavaleiros do Zodíaco";
+                op10.value = "Cavaleiros do Zodíaco";
+                selec2.appendChild(op10);
+
+            } else if (selec1.value == "Filmes") {
+
+                var op1 = document.createElement("option");
+                op1.innerHTML = "As Branquelas";
+                op1.value = "As Branquelas";
+                selec2.appendChild(op1);
+
+                var op2 = document.createElement("option");
+                op2.innerHTML = "Gente Grande";
+                op2.value = "Gente Grande";
+                selec2.appendChild(op2);
+
+                var op3 = document.createElement("option");
+                op3.innerHTML = " SAGA: Harry Potter";
+                op3.value = "Harry Potter";
+                selec2.appendChild(op3);
+
+                var op4 = document.createElement("option");
+                op4.innerHTML = "SAGA: Jurassic Park";
+                op4.value = "Jurassic Park";
+                selec2.appendChild(op4);
+
+                var op5 = document.createElement("option");
+                op5.innerHTML = "SACA: Percy Jackson";
+                op5.value = "SACA: Percy Jackson";
+                selec2.appendChild(op5);
+
+                var op6 = document.createElement("option");
+                op6.innerHTML = "Megatubarão";
+                op6.value = "Megatubarão";
+                selec2.appendChild(op6);
+
+                var op7 = document.createElement("option");
+                op6.innerHTML = "SAGA: After";
+                op6.value = "SAGA: After";
+                selec2.appendChild(op7);
+
+                var op8 = document.createElement("option");
+                op8.innerHTML = "Túmulo de Vagalumes";
+                op8.value = "Túmulo de Vagamules";
+                selec2.appendChild(op8);
+
+                var op9 = document.createElement("option");
+                op9.innerHTML = "O Auto da Compadecida";
+                op9.value = "O Auto da Compadecida";
+                selec2.appendChild(op9);
+
+                var op10 = document.createElement("option");
+                op10.innerHTML = "SAGA: A Minha Mãe é uma Peça";
+                op10.value = "SAGA: A Minha Mãe é uma Peça";
+                selec2.appendChild(op10);
+
+
+            } else if (selec1.value == "Series") {
+
+                var op1 = document.createElement("option");
+                op1.innerHTML = "Game of Thrones";
+                op1.value = "Game of Thrones";
+                selec2.appendChild(op1);
+
+                var op2 = document.createElement("option");
+                op2.innerHTML = "Lost";
+                op2.value = "Lost";
+                selec2.appendChild(op2);
+
+                var op3 = document.createElement("option");
+                op3.innerHTML = "Stranger Things";
+                op3.value = "Stranger Things";
+                selec2.appendChild(op3);
+
+                var op4 = document.createElement("option");
+                op4.innerHTML = "The Office";
+                op4.value = "The Office";
+                selec2.appendChild(op4);
+
+                var op5 = document.createElement("option");
+                op5.innerHTML = "Loki";
+                op5.value = "Loki";
+                selec2.appendChild(op5);
+
+                var op6 = document.createElement("option");
+                op6.innerHTML = "Criminal Minds";
+                op6.value = "Criminal Minds";
+                selec2.appendChild(op6);
+
+                var op7 = document.createElement("option");
+                op7.innerHTML = "Chicago P.D";
+                op7.value = "Chicago P.D";
+                selec2.appendChild(op7);
+
+
+                var op8 = document.createElement("option");
+                op8.innerHTML = "Sherlock Holmes";
+                op8.value = "Sherlock Holmes";
+                selec2.appendChild(op8);
+
+                var op9 = document.createElement("option");
+                op9.innerHTML = "Lupin";
+                op9.value = "Lupin";
+                selec2.appendChild(op9);
+
+                var op10 = document.createElement("option");
+                op10.innerHTML = "A Roda do Tempo";
+                op10.value = "A Roda do Tempo";
+                selec2.appendChild(op10);
+            }
+        }
